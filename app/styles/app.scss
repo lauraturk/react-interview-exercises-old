@@ -1,20 +1,5 @@
 @import "pod-styles";
 
 html {
-  font-family: Roboto;
-  height: 100%;
-  background: linear-gradient(to bottom, #E4EFC0 0%, #ABBD73 100%);
-}
-
-body {
-  height: 100%;
-}
-
-body > .ember-view {
-  height: 100%;
-}
-
-.card-container {
-  display: flex;
-  height: 100%;
+  background: linear-gradient(to bottom, #e4efc0 0%, #abbd73 100%);
 }
