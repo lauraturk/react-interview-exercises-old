@@ -32,10 +32,8 @@ export default class UiButton extends Component {
 
   // Actions
   // ---------------------------------------------------------------------------
-  // TODO: remove preventDefault here and see the reset button submit the form
   @action
   public click(e) {
-    e.preventDefault();
     if (this.task) {
       this.task.perform();
     } else {
