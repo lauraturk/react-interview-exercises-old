@@ -1,8 +1,8 @@
 <h1>Color Palette</h1>
 <NewColor @addCallback={{action "addColor"}} />
 <div class="card-container">
-  {{#each model as |card|}}
-    <ColorCard @card={{card}} @deleteCallback={{action "deleteColor"}} @votingCallback={{action "voteOnColor"}}/>
+  {{#each model as |card index|}}
+    <ColorCard @card={{card}} @cardIndex={{index}} @deleteCallback={{action "deleteColor"}} @votingCallback={{action "voteOnColor"}}/>
   {{/each}}
 </div>
 

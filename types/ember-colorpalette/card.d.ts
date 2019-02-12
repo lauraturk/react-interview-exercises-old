@@ -5,4 +5,4 @@ export interface Card {
 }
 
 export type CardCallback = (card: Card) => undefined;
-export type VotingCallback = (card: Card, vote: number) => undefined;
+export type VotingCallback = (cardIndex: number, vote: number) => undefined;

@@ -34,6 +34,7 @@ export default class UiButton extends Component {
   // ---------------------------------------------------------------------------
   @action
   public click(e) {
+    e.preventDefault();
     if (this.task) {
       this.task.perform();
     } else {

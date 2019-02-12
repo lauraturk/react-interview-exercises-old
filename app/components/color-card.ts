@@ -32,6 +32,11 @@ function toGrayscale(color: string): string {
 }
 
 export default class ColorCard extends Component {
+  // Passed properties
+  // ---------------------------------------------------------------------------
+  public card: Card = null;
+  public cardIndex: number = 0;
+
   // Computed properties
   // ---------------------------------------------------------------------------
   @computed("card.color")
@@ -54,7 +59,6 @@ export default class ColorCard extends Component {
   get buttonBackgroundColor() {
     return brightness(this.card.color) > 0.5 ? "#000000aa" : "#ffffffaa";
   }
-  public card: Card = null;
 
   // Internal properties
   // ---------------------------------------------------------------------------
@@ -67,7 +71,7 @@ export default class ColorCard extends Component {
       <h1>name: {{card.name}}</h1>
       <section class="{{styleNamespace}}__colorField">
         <p>color: {{card.color}}</p>
-        {{input value=card.color type="color"}}
+        <input onchange={{action (mut card.color) value="target.value"}} type="color" value={{card.color}}>
       </section>
       <Stars @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
     </section>
@@ -90,10 +94,10 @@ export default class ColorCard extends Component {
 
   @action
   public voteOnCard(value: number) {
-    this.votingCallback(this.card, value);
+    this.votingCallback(this.cardIndex, value);
   }
 
-  // Passed properties
+  // Passed Methods
   // ---------------------------------------------------------------------------
   public deleteCallback: CardCallback = () => undefined;
   public votingCallback: VotingCallback = () => undefined;

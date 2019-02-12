@@ -21,7 +21,7 @@ export default class Domains extends Controller {
   }
 
   @action
-  public voteOnColor(value: Card, vote: number) {
-    set(this.model, "0.stars", vote);
+  public voteOnColor(cardIndex: number, vote: number) {
+    set(this.model, `${cardIndex}.stars`, vote);
   }
 }

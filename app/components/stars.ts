@@ -1,26 +1,34 @@
 import { action } from "@ember-decorators/object";
 import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
+import { computed } from "@ember-decorators/object";
 
 export default class Stars extends Component {
   public stars: number = 0;
 
+  @computed("stars")
+  get starArray() {
+    const stars = Array(this.stars).fill("⭐");
+    const empties = Array(5 - stars.length).fill("*️⃣");
+    return [...stars, ...empties];
+  }
+
   public layout = hbs`
-    <button {{action "vote" 1}}>⭐</button>
-    <button {{action "vote" 2}}>⭐</button>
-    <button {{action "vote" 3}}>⭐</button>
-    <button {{action "vote" 4}}>⭐</button>
-    <button {{action "vote" 5}}>⭐</button>
-    <p>stars: {{stars}}</p>
+    <p>
+      Rating:<br>
+      {{#each starArray as |star index|}}
+        <button class="star-button" {{action "vote" index}}>{{star}}</button>
+      {{/each}}
+    </p>
   `;
   // Actions
   // ---------------------------------------------------------------------------
   @action
-  public vote(id: number) {
-    this.votingCallback(id);
+  public vote(score: number) {
+    this.votingCallback(score + 1);
   }
 
   // Passed properties
   // ---------------------------------------------------------------------------
-  public votingCallback: (id: number) => undefined = () => undefined;
+  public votingCallback: (score: number) => undefined = () => undefined;
 }
