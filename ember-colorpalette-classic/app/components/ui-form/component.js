@@ -2,7 +2,6 @@ import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 
 // TODO: Pull the submit() handler out and see the form reload
-// TODO: Pull `form` out and see things break.
 export default Component.extend({
   // Passed properties
   // ---------------------------------------------------------------------------
@@ -17,7 +16,6 @@ export default Component.extend({
   // Template
   // ---------------------------------------------------------------------------
   // TODO: take out pre-wiring of submit button
-  tagName: "form",
   layout: hbs`
     {{yield (hash
       label=(component "ui-form/label")

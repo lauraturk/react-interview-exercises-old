@@ -1,9 +1,6 @@
 import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
-import { tagName } from "@ember-decorators/component";
 
-// TODO: Pull `form` out and see things break.
-@tagName("form")
 export default class UiForm extends Component {
   // Template
   // ---------------------------------------------------------------------------
