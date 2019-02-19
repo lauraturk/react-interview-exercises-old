@@ -17,10 +17,8 @@ export default Component.extend({
 
   // Actions
   // ---------------------------------------------------------------------------
-  // TODO: remove preventDefault here and see the reset button submit the form
   click(e) {
     console.log("ui-button CLICK");
-    e.preventDefault();
     if (this.task) {
       this.task.perform();
     } else {
