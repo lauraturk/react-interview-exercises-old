@@ -6,9 +6,9 @@ const TEST = false;
 
 function brightness(color) {
   // parse card.color into three variables
-  const redness = (parseInt(color.slice(1, 3), 16) + 1) / 256;
-  const blueness = (parseInt(color.slice(3, 5), 16) + 1) / 256;
-  const greenness = (parseInt(color.slice(5, 7), 16) + 1) / 256;
+  const redness = 0.5;
+  const blueness = 0.5;
+  const greenness = 0.5;
   // A bunch of color theory here: different colors don't contribute equally to brightness
   const redMultiplier = 77 / 255; // because science
   const blueMultiplier = 150 / 255;
