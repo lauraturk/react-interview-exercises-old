@@ -2,7 +2,7 @@
 <NewColor @addCallback={{action "addColor"}} />
 <div class="card-container">
   {{#each model as |card|}}
-    <ColorCard @card={{card}} @deleteCallback={{action "deleteColor"}} @votingCallback={{action "voteOnColor"}}/>
+    <ColorCard @card={{card}} @votingCallback={{action "voteOnColor"}}/>
   {{/each}}
 </div>
 
