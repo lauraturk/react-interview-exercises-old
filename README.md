@@ -13,11 +13,14 @@ Use `npm test` to run tests.
 
 ## Fixing the current system
 
-You can do this exercise in one of two flavors: Ember or React. Decide which you want to work with. Depending on your choice, you'll use one of two different directories:
+This exercise varies based on the role:
 
-- Ember: `colorpalette-ember`
-- React: `colorpalette-react`
+* **JavaScript Engineer** You can do this exercise in one of two flavors: Ember or React. Decide which you want to work with. Depending on your choice, you'll use one of two different directories:
 
+  - Ember: `colorpalette-ember`
+  - React: `colorpalette-react`
+
+* **Senior JavaScript Engineer** Use the Ember version located in the `colorpalette-ember` directory.
 
 1. Make sure you have checked out the `master` branch and that there are no outstanding changes. If you are interviewing for the _senior_ javascript role, you should check out the `advanced-troubleshooting` branch.
 1. Review `demo.mov` in the proper subdirectory to see how the system is supposed to behave.
