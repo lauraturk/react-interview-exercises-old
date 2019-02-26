@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 
-Use `npm start` to run tests.
+Use `npm test` to run tests.
 
 ## Fixing the current system
 
