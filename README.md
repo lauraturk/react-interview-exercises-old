@@ -13,9 +13,9 @@ Use `npm test` to run tests.
 
 ## Fixing the current system
 
-You can do this exercise in one of two flavors: Ember Classic or React. Decide which you want to work with. Depending on your choice, you'll use one of two different directories:
+You can do this exercise in one of two flavors: Ember or React. Decide which you want to work with. Depending on your choice, you'll use one of two different directories:
 
-- Ember Classic: `ember-colorpalette-classic`
+- Ember: `colorpalette-ember`
 - React: `colorpalette-react`
 
 
@@ -28,7 +28,7 @@ You can do this exercise in one of two flavors: Ember Classic or React. Decide w
 > **Note:** there is likely more work to do here than you have time for and you have multiple independent things wrong and can start wherever you like. The interviewer will likely stop you before you're finished in order to ask you other questions.
 
 ## Writing new features
-Pick a new feature to the system by picking a challenge you feel comfortable getting done in the time you have left. Below you’ll find some options. Ensure you write a test for whatever feature you add. For extra credit, write the test first.
+Pick a new feature to add the system by picking a challenge you feel comfortable getting done in the time you have left. Below you’ll find some options. Ensure you write a test for whatever feature you add. For extra credit, write the test first.
 
 ### Feature choices
 
