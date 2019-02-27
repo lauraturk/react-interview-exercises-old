@@ -1,5 +1,0 @@
-/blueprints/*/files/**/*.js
-/dist/
-/node_modules/
-/vendor/
-!.eslintrc.js
