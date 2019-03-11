@@ -14,7 +14,7 @@ export default Component.extend({
 
   // Template
   // ---------------------------------------------------------------------------
-  // TODO: take out pre-wiring of submit button
+  tagName: "form",
   layout: hbs`
     {{yield (hash
       label=(component "ui-form/label")
