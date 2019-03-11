@@ -2,26 +2,37 @@ import { computed } from "@ember/object";
 import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 
-const TEST = false;
+/**
+ * This function calculates the "brightness" of the given color.
+ * @param {String} hexCode - a hexcode value of the color (e.g. "#ff0000",
+ *  which would be "computer red")
+ * @returns {Number} - brightness of this color as a value from 0 - 1
+ *  (0 being "completely dark" (i.e. black) and 1 being "completely bright" (i.e. white))
+ *  this function is aware, however, that "pure green" (i.e. "#00ff00") is brighter than
+ *  "pure blue" (i.e. "#0000ff").
+ */
+function brightness(hexCode) {
+  // FIXME: parse color into three variables in order to find percent of each channel
+  // --------------------------------------------------------------------------------
+  // In a given color code (#aabbcc), the first two "digits" are for red (i.e. "aa"),
+  // the second two digits are for blue (i.e. "bb"), and the last two digits are for
+  // green (i.e. "cc"). Then figure out the overall percent of each color
+  // (hint: "00" is 0% and "ff" is 100%)
+  const percentRed = 0.5;
+  const percentBlue = 0.5;
+  const percentGreen = 0.5;
 
-function brightness(color) {
-  // parse card.color into three variables
-  const redness = 0.5;
-  const blueness = 0.5;
-  const greenness = 0.5;
   // A bunch of color theory here: different colors don't contribute equally to brightness
-  const redMultiplier = 77 / 255; // because science
+  // NOTE: This code is correct; do not change.
+  const redMultiplier = 77 / 255;
   const blueMultiplier = 150 / 255;
   const greenMultiplier = 28 / 255;
-  return (
-    redMultiplier * redness +
-    blueMultiplier * blueness +
-    greenMultiplier * greenness
-  );
-}
 
-function toGrayscale(color) {
-  return `hsl(0, 0%, ${brightness(color) * 100}%)`;
+  return (
+    redMultiplier * percentRed +
+    blueMultiplier * percentBlue +
+    greenMultiplier * percentGreen
+  );
 }
 
 export default Component.extend({
@@ -29,10 +40,6 @@ export default Component.extend({
   // ---------------------------------------------------------------------------
   style: computed("card.color", function() {
     const color = brightness(this.card.color) > 0.5 ? "black" : "white";
-    if (TEST) {
-      const backgroundColor = toGrayscale(this.card.color);
-      return `background-color: ${backgroundColor}; color: ${color};`;
-    }
     return `background-color: ${this.card.color}; color: ${color};`;
   }),
 

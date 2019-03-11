@@ -1,7 +1,6 @@
 import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 
-// TODO: Pull the submit() handler out and see the form reload
 export default Component.extend({
   // Passed properties
   // ---------------------------------------------------------------------------
