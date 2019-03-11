@@ -76,13 +76,20 @@ export default Component.extend({
     <section class="{{styleNamespace}}__main">
       <h1>name: {{card.name}}</h1>
       <section class="{{styleNamespace}}__colorField">
-        <p>color: {{card.color}}</p>
-        {{input value=card.color type="color"}}
+        <p data-test={{hook "color-value" id=card.name}}>color: {{card.color}}</p>
+        {{input hook=(hook "change-color" id=card.name) value=card.color}}
       </section>
-      <Stars @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
+      <Stars @name={{card.name}} @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
     </section>
     <section class="{{styleNamespace}}__actions">
-      <UiButton @backgroundColor={{buttonBackgroundColor}} @color={{buttonColor}} @onClick={{action "deleteCard"}}>Delete</UiButton>
+      <UiButton
+        data-test={{hook "delete-color" id=card.name}}
+        @backgroundColor={{buttonBackgroundColor}}
+        @color={{buttonColor}}
+        @onClick={{action "deleteCard"}}
+      >
+        Delete
+      </UiButton>
     </section>
   `
 });
