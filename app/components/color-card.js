@@ -18,9 +18,9 @@ function brightness(hexCode) {
   // the second two digits are for blue (i.e. "bb"), and the last two digits are for
   // green (i.e. "cc"). Then figure out the overall percent of each color
   // (hint: "00" is 0% and "ff" is 100%)
-  const percentRed = 0.5;
-  const percentBlue = 0.5;
-  const percentGreen = 0.5;
+  const percentRed = (parseInt(hexCode.slice(1, 3), 16) + 1) / 256;
+  const percentBlue = (parseInt(hexCode.slice(3, 5), 16) + 1) / 256;
+  const percentGreen = (parseInt(hexCode.slice(5, 7), 16) + 1) / 256;
 
   // A bunch of color theory here: different colors don't contribute equally to brightness
   // NOTE: This code is correct; do not change.
