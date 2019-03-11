@@ -47,9 +47,6 @@ export default Component.extend({
   // Actions
   // ---------------------------------------------------------------------------
   actions: {
-    editColor() {
-      this.set("isEditing", !this.isEditing);
-    },
     deleteCard() {
       console.log("card wants to delete");
       this.deleteCallback(this.card);
@@ -65,11 +62,6 @@ export default Component.extend({
   votingCallback: () => null,
   card: null,
 
-  // Internal properties
-  // ---------------------------------------------------------------------------
-  isEditing: false,
-
-  // TODO: click on the text field to edit the text value directly
   // Template
   // ---------------------------------------------------------------------------
   attributeBindings: ["style"],
