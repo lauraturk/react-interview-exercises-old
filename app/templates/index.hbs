@@ -5,6 +5,7 @@
     <ColorCard
       data-test={{hook "card" id=card.name}}
       @card={{card}}
+      @deleteCallback={{action "deleteColor"}}
       @votingCallback={{action "voteOnColor"}}
     />
   {{/each}}
