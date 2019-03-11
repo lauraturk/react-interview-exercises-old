@@ -17,7 +17,8 @@ export default Controller.extend({
       this.model.removeAt(index);
     },
     voteOnColor(value, vote) {
-      set(this.model, "0.stars", vote);
+      const card = this.model.findBy("name", value.name);
+      set(card, "stars", vote);
     }
   }
 });
