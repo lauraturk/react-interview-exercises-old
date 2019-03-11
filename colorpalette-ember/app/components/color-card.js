@@ -77,7 +77,7 @@ export default Component.extend({
       <h1>name: {{card.name}}</h1>
       <section class="{{styleNamespace}}__colorField">
         <p data-test={{hook "color-value" id=card.name}}>color: {{card.color}}</p>
-        {{input hook=(hook "change-color" id=card.name) value=card.color}}
+        {{input hook=(hook "change-color" id=card.name) value=card.color type="color"}}
       </section>
       <Stars @name={{card.name}} @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
     </section>
