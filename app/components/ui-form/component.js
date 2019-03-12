@@ -9,7 +9,7 @@ export default Component.extend({
   // Internal methods
   // ---------------------------------------------------------------------------
   submit(e) {
-    // Time to submit...
+    e.preventDefault();
   },
 
   // Template
@@ -19,7 +19,7 @@ export default Component.extend({
     {{yield (hash
       label=(component "ui-form/label")
       input=(component "ui-form/input")
-      submit=(component "ui-button" id="submit" type="submit")
+      submit=(component "ui-button" id="submit" onClick=onSubmit type="submit")
     )}}
   `
 });
