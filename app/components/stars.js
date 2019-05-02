@@ -2,6 +2,12 @@ import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 
 export default Component.extend({
+  // Passed properties
+  // ---------------------------------------------------------------------------
+  name: "",
+  stars: 0,
+  votingCallback: () => undefined,
+
   // Actions
   // ---------------------------------------------------------------------------
   actions: {
@@ -10,12 +16,8 @@ export default Component.extend({
     }
   },
 
-  // Passed properties
+  // Template
   // ---------------------------------------------------------------------------
-  name: "",
-  stars: 0,
-  votingCallback: () => undefined,
-
   layout: hbs`
     <button {{action "vote" 1}} data-test={{hook "vote" name=name id=1}}>⭐</button>
     <button {{action "vote" 2}} data-test={{hook "vote" name=name id=2}}>⭐</button>

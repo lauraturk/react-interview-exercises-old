@@ -2,11 +2,11 @@ import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
 
 export default Component.extend({
-  // Passed properties
+  // Passed Properties
   // ---------------------------------------------------------------------------
   onSubmit: () => null,
 
-  // Internal methods
+  // Events
   // ---------------------------------------------------------------------------
   submit(e) {
     // Time to submit...
@@ -14,7 +14,6 @@ export default Component.extend({
 
   // Template
   // ---------------------------------------------------------------------------
-  // TODO: take out pre-wiring of submit button
   layout: hbs`
     {{yield (hash
       label=(component "ui-form/label")
