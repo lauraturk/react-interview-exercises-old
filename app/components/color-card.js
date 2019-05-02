@@ -36,19 +36,25 @@ function brightness(hexCode) {
 }
 
 export default Component.extend({
-  // Computed properties
+  // Passed properties
   // ---------------------------------------------------------------------------
-  style: computed("card.color", function() {
-    const color = brightness(this.card.color) > 0.5 ? "black" : "white";
-    return `background-color: ${this.card.color}; color: ${color};`;
+  card: null,
+  deleteCallback: () => null,
+  votingCallback: () => null,
+
+  // Internal properties
+  // ---------------------------------------------------------------------------
+  buttonBackgroundColor: computed("card.color", function() {
+    return brightness(this.card.color) > 0.5 ? "#000000aa" : "#ffffffaa";
   }),
 
   buttonColor: computed("card.color", function() {
     return brightness(this.card.color) > 0.5 ? "white" : "black";
   }),
 
-  buttonBackgroundColor: computed("card.color", function() {
-    return brightness(this.card.color) > 0.5 ? "#000000aa" : "#ffffffaa";
+  style: computed("card.color", function() {
+    const color = brightness(this.card.color) > 0.5 ? "black" : "white";
+    return `background-color: ${this.card.color}; color: ${color};`;
   }),
 
   // Actions
@@ -62,12 +68,6 @@ export default Component.extend({
       this.votingCallback(this.card, value);
     }
   },
-
-  // Passed properties
-  // ---------------------------------------------------------------------------
-  deleteCallback: () => null,
-  votingCallback: () => null,
-  card: null,
 
   // Template
   // ---------------------------------------------------------------------------

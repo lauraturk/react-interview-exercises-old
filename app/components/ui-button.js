@@ -5,17 +5,21 @@ import { computed } from "@ember/object";
 const DEFAULT_BLUE = "#147fbd";
 
 export default Component.extend({
-  // Computed properties
+  // Passed properties
+  // ---------------------------------------------------------------------------
+  backgroundColor: DEFAULT_BLUE,
+  color: "#fff",
+  onClick: () => null,
+  task: null,
+  type: "button",
+
+  // Internal properties
   // ---------------------------------------------------------------------------
   style: computed("backgroundColor", "color", function() {
     return `background-color: ${this.backgroundColor}; color: ${this.color};`;
   }),
 
-  // Callbacks
-  // ---------------------------------------------------------------------------
-  onClick: () => null,
-
-  // Actions
+  // Events
   // ---------------------------------------------------------------------------
   click(e) {
     console.log("ui-button CLICK");
@@ -27,18 +31,8 @@ export default Component.extend({
     }
   },
 
-  // Passed properties
+  // Ember Properties
   // ---------------------------------------------------------------------------
-  backgroundColor: DEFAULT_BLUE,
-  color: "#fff",
-  type: "button",
-
-  // Passed properties
-  // ---------------------------------------------------------------------------
-  task: null,
-
-  // Template
-  // ---------------------------------------------------------------------------
+  attributeBindings: ["style", "type"],
   tagName: "button",
-  attributeBindings: ["style", "type"]
 });

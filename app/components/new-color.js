@@ -6,25 +6,27 @@ export default Component.extend({
   // ---------------------------------------------------------------------------
   addCallback: () => null,
 
+  // Internal properties
+  // ---------------------------------------------------------------------------
+  color: "",
+  name: "",
+
   // Actions
   // ---------------------------------------------------------------------------
   actions: {
+    reset() {
+      this.set("name", "");
+    },
     save() {
       const card = { name: this.name, color: this.color, stars: 0 };
       this.addCallback(card);
       this.set("name", "");
       this.set("color", "");
     },
-    reset() {
-      this.set("name", "");
-    }
   },
 
-  // Internal properties
+  // Template
   // ---------------------------------------------------------------------------
-  name: "",
-  color: "",
-
   layout: hbs`
     {{#ui-form onSubmit=(action "save") as |form|}}
       <section>
