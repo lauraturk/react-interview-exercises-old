@@ -15,23 +15,23 @@ function brightness(hexCode) {
   // FIXME: parse color into three variables in order to find percent of each channel
   // --------------------------------------------------------------------------------
   // In a given color code (#aabbcc), the first two "digits" are for red (i.e. "aa"),
-  // the second two digits are for blue (i.e. "bb"), and the last two digits are for
-  // green (i.e. "cc"). Then figure out the overall percent of each color
+  // the second two digits are for green (i.e. "bb"), and the last two digits are for
+  // blue (i.e. "cc"). Then figure out the overall percent of each color
   // (hint: "00" is 0% and "ff" is 100%)
   const percentRed = 0.5;
-  const percentBlue = 0.5;
   const percentGreen = 0.5;
+  const percentBlue = 0.5;
 
   // A bunch of color theory here: different colors don't contribute equally to brightness
   // NOTE: This code is correct; do not change.
   const redMultiplier = 77 / 255;
-  const blueMultiplier = 150 / 255;
   const greenMultiplier = 28 / 255;
+  const blueMultiplier = 150 / 255;
 
   return (
     redMultiplier * percentRed +
-    blueMultiplier * percentBlue +
-    greenMultiplier * percentGreen
+    greenMultiplier * percentGreen +
+    blueMultiplier * percentBlue
   );
 }
 
