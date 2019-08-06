@@ -10,7 +10,6 @@ export default Component.extend({
   backgroundColor: DEFAULT_BLUE,
   color: "#fff",
   onClick: () => null,
-  task: null,
   type: "button",
 
   // Internal properties
@@ -22,13 +21,8 @@ export default Component.extend({
   // Events
   // ---------------------------------------------------------------------------
   click(e) {
-    console.log("ui-button CLICK");
-    if (this.task) {
-      this.task.perform();
-    } else {
-      console.log("calling ui-button onClick method...");
-      this.onClick();
-    }
+    console.log("calling ui-button onClick method...");
+    this.onClick();
   },
 
   // Ember Properties
