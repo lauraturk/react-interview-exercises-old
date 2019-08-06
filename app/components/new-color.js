@@ -28,7 +28,7 @@ export default Component.extend({
   // Template
   // ---------------------------------------------------------------------------
   layout: hbs`
-    {{#ui-form onSubmit=(action "save") as |form|}}
+    <UiForm @onSubmit={{action "save"}} as |form|>
       <section>
         {{#form.label}}Color name:{{/form.label}}
         {{form.input placeholder="my cool color" value=name}}
@@ -40,9 +40,9 @@ export default Component.extend({
       </section>
 
       <section>
-        {{#ui-button onClick=(action "reset")}}Reset{{/ui-button}}
+        <UiButton @onClick={{action "reset"}}>Reset</UiButton>
         {{#form.submit}}Save{{/form.submit}}
       </section>
-    {{/ui-form}}
+    </UiForm>
   `
 });
