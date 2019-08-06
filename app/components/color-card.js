@@ -39,8 +39,8 @@ export default Component.extend({
   // Passed properties
   // ---------------------------------------------------------------------------
   card: null,
-  deleteCallback: () => null,
-  votingCallback: () => null,
+  deleteCallback: (card) => null,
+  votingCallback: (card, score) => null,
 
   // Internal properties
   // ---------------------------------------------------------------------------
@@ -57,18 +57,6 @@ export default Component.extend({
     return `background-color: ${this.card.color}; color: ${color};`;
   }),
 
-  // Actions
-  // ---------------------------------------------------------------------------
-  actions: {
-    deleteCard() {
-      console.log("card wants to delete");
-      this.deleteCallback(this.card);
-    },
-    voteOnCard(value) {
-      this.votingCallback(this.card, value);
-    }
-  },
-
   // Template
   // ---------------------------------------------------------------------------
   attributeBindings: ["style"],
@@ -79,14 +67,18 @@ export default Component.extend({
         <p data-test={{hook "color-value" id=card.name}}>color: {{card.color}}</p>
         {{input hook=(hook "change-color" id=card.name) value=card.color type="color"}}
       </section>
-      <Stars @name={{card.name}} @stars={{card.stars}} @votingCallback={{action "voteOnCard"}}/>
+      <Stars
+        @name={{card.name}}
+        @stars={{card.stars}}
+        @votingCallback={{action votingCallback card}}
+      />
     </section>
     <section class="{{styleNamespace}}__actions">
       <UiButton
         data-test={{hook "delete-color" id=card.name}}
         @backgroundColor={{buttonBackgroundColor}}
         @color={{buttonColor}}
-        @onClick={{action "deleteCard"}}
+        @onClick={{action deleteCallback card}}
       >
         Delete
       </UiButton>

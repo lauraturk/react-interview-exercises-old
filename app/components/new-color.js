@@ -4,7 +4,7 @@ import Component from "@ember/component";
 export default Component.extend({
   // Passed properties
   // ---------------------------------------------------------------------------
-  addCallback: () => null,
+  addCallback: (card) => null,
 
   // Internal properties
   // ---------------------------------------------------------------------------

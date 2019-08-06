@@ -5,19 +5,19 @@ export default Controller.extend({
   // Actions
   // ---------------------------------------------------------------------------
   actions: {
-    addColor(value) {
+    addColor(color) {
       console.log("addColor");
-      this.model.pushObject(value);
+      this.model.pushObject(color);
     },
-    deleteColor(value) {
+    deleteColor(card) {
       const index = this.model.reduce(
-        (memo, card, idx) => (memo = card.name === value.name ? idx : memo),
+        (memo, color, idx) => (memo = color.name === card.name ? idx : memo),
         null
       );
       this.model.removeAt(index);
     },
-    voteOnColor(value, vote) {
-      set(this.model, "0.stars", vote);
+    voteOnColor(card, score) {
+      set(this.model, "0.stars", score);
     }
   }
 });
