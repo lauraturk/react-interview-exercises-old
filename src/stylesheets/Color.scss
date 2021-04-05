@@ -31,26 +31,26 @@ section.color {
   h1 {
     font-family: Verdana, sans-serif;
     text-align: center;
-    padding: .5em;
+    padding: 0.5em;
     flex-basis: calc(100% - 1em);
   }
 
-  button {
+  button.close {
     position: absolute;
-    top: .5em;
-    right: .5em;
+    top: 0.5em;
+    right: 0.5em;
     flex-basis: calc(12% - 1em);
     text-align: right;
     @include fade-bg($light, $light-grey);
-    padding: .75em;
-    border-radius: .5px;
+    padding: 0.75em;
+    border-radius: 0.5px;
   }
 
   > div:last-child {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 
   div.color {
@@ -60,10 +60,9 @@ section.color {
 
   div.time-ago {
     position: absolute;
-    bottom: .5em;
-    right: .5em;
+    bottom: 0.5em;
+    right: 0.5em;
     font-family: monospace;
     color: darken($light-grey, 40%);
   }
-
 }

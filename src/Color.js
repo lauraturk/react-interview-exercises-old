@@ -1,9 +1,8 @@
-import StarRating from './StarRating'
-import React, { Component } from 'react'
-// import '../../stylesheets/Color.scss'
+import "./stylesheets/Color.scss"
 
 import React, { Component } from "react"
 
+import StarRating from "./StarRating"
 
 function brightness(color: string): number {
   // parse card.color into three variables
@@ -36,7 +35,7 @@ export default class Color extends Component {
     return (
       <section className="color" style={this.style()}>
         <h1>{this.props.title}</h1>
-        <div className="close">X</div>
+        <button className="close">X</button>
         <p>
           color: {this.props.color}
           <input

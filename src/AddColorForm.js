@@ -1,35 +1,39 @@
-import React, { Component } from 'react'
-// import '../../stylesheets/AddColorForm.scss'
+import "./stylesheets/AddColorForm.scss"
+
+import React, { Component } from "react"
 
 export default class AddColorForm extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
-      title: '',
-      color: '#000000'
+      title: "",
+      color: "#000000",
     }
   }
 
-  handleSubmit (e) {
+  handleSubmit(e) {
     e.preventDefault()
-    this.props.onNewColor(this.state.title.value, this.state.color.value) // To ensure that data flows properly (two-way data binding)
-    this.setState({ title: '', color: '#000000' })
+    this.props.onNewColor(this.state.title, this.state.color)
+    this.setState({ title: "", color: "#000000" })
   }
 
-  render () {
+  render() {
     return (
-      <form className='add-color' onSubmit={this.handleSubmit}>
+      <form className="add-color" onSubmit={this.handleSubmit}>
         <input
-          ref={input => ({ title: input })}
-          type='text'
-          placeholder='color title...' required
+          onChange={(e) => this.setState({ title: e.target.value })}
+          value={this.state.title}
+          type="text"
+          placeholder="color title..."
         />
         <input
-          ref={input => ({ color: input })}
-          type='color' required
+          onChange={(e) => this.setState({ color: e.target.value })}
+          value={this.state.color}
+          type="color"
+          required
         />
-        <button> ADD </button>
+        <button type="submit"> ADD </button>
       </form>
     )
   }

@@ -1,37 +1,40 @@
-import React, { Component } from 'react'
-import { v4 } from 'uuid'
-import AddColorForm from './AddColorForm'
-import ColorList from './ColorList'
-// import './stylesheets/APP.scss'
+import "./stylesheets/APP.scss"
+
+import React, { Component } from "react"
+
+import AddColorForm from "./AddColorForm"
+import ColorList from "./ColorList"
+import { v4 } from "uuid"
 
 class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-      colors: []
+      colors: [],
     }
     this.addColor = this.addColor.bind(this)
-    this.rateColor = this.rateColor.bind(this)
+    this.changeColor = this.changeColor.bind(this)
     this.removeColor = this.removeColor.bind(this)
   }
 
-  addColor (title, color) {
-    this.setState(prevState => ({
+  addColor(title, color) {
+    this.setState((prevState) => ({
       colors: [
         ...prevState.colors,
         {
+          id: v4(),
           title,
           color,
-          rating: 0
-        }
-      ]
+          rating: 0,
+        },
+      ],
     }))
   }
 
-  changeColor(colorTitle, property, newValue) {
+  changeColor(id, property, newValue) {
     this.setState((prevState) => ({
       colors: prevState.colors.map((color) =>
-        color.title !== colorTitle
+        color.id !== id
           ? color
           : {
               ...color,
@@ -41,21 +44,24 @@ class App extends Component {
     }))
   }
 
-  removeColor(colorTitle) {
+  removeColor(id) {
     this.setState((prevState) => ({
-      colors: prevState.colors.filter((color) => color.title !== colorTitle),
+      colors: prevState.colors.filter((color) => color.id !== id),
     }))
   }
 
-  render () {
+  render() {
     const { addColor, rateColor, removeColor } = this
     const { colors } = this.state
     return (
-      <div className='app'>
+      <div className="app">
         <AddColorForm onNewColor={addColor} />
         <ColorList
           colors={colors}
-          onRate={rateColor}
+          onColorChange={(id, newValue) =>
+            this.changeColor(id, "color", newValue)
+          }
+          onRate={(id, newValue) => this.changeColor(id, "rating", newValue)}
           onRemove={removeColor}
         />
       </div>
