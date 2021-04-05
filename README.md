@@ -19,6 +19,5 @@ Instructions for the person taking the test:
 Feature choices
 
 1. Make the form validate input: must have a name and a non-default color. Disable the submit button.
-1. Make it so the "reset" button on the form does not have the same styling as the submit button.
-1. Refactor the voting system. What would you do to make this look more beautiful and to make the code cleaner?
-1. Add a mirage infrastructure and use Ember Data instead of an array.
+1. Add a "reset" button on the form which has different styling than the submit button.
+1. Write tests

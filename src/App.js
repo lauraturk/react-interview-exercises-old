@@ -20,7 +20,6 @@ class App extends Component {
       colors: [
         ...prevState.colors,
         {
-          id: v4(),
           title,
           color,
           rating: 0
@@ -29,22 +28,22 @@ class App extends Component {
     }))
   }
 
-  rateColor (id, rating) {
-    this.setState(prevState => ({
-      colors: prevState.colors.map(color =>
-        (color.id !== id)
+  changeColor(colorTitle, property, newValue) {
+    this.setState((prevState) => ({
+      colors: prevState.colors.map((color) =>
+        color.title !== colorTitle
           ? color
           : {
               ...color,
-              rating
+              [property]: newValue,
             }
-      )
+      ),
     }))
   }
 
-  removeColor (id) {
-    this.setState(prevState => ({
-      colors: prevState.colors.filter(color => color.id !== id)
+  removeColor(colorTitle) {
+    this.setState((prevState) => ({
+      colors: prevState.colors.filter((color) => color.title !== colorTitle),
     }))
   }
 
