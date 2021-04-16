@@ -2,7 +2,7 @@ Instructions for the person taking the test:
 
 ## Fixing the current system
 
-1. Make sure you have checked out the `main` branch and that there are no outstanding changes. If you are interviewing for the _senior_ javascript role, you should check out the `advanced-troubleshooting` branch.
+1. Make sure you have checked out the `main` branch and that there are no outstanding changes.
 1. Review `demo.mov` in the proper subdirectory to see how the system is supposed to behave.
 1. Install dependencies and start the development server and see how the system _currently_ behaves.
 1. Run the automated tests. Do they pass?
